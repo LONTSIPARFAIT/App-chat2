@@ -1,10 +1,17 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import EmojiPicker from "emoji-picker-react";
 import "./chat.css";
 
 const Chat = () => {
     const [open,setOpen] = useState(false);
     const [text,setText] = useState("");
+
+    const endRef = useRef(null);
+
+    useEffect(()=>{
+        endRef.current?.scrollIntoView({ behavior: "smooth" })
+    },[])
+
     const handleEmoji = e =>{
         setText((prev)=>prev + e.emoji);
         setOpen(false);
@@ -33,7 +40,20 @@ const Chat = () => {
             <div className="message">
                 <img src="./avatar.png" alt="" />
                 <div className="texts">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur dolorem fuga repudiandae suscipit ea nihil aperiam cumque dignissimos fugiat autem minus, ipsa amet ullam odit eum assumenda debitis harum blanditiis.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur dolorem fuga repudiandae suscipit ea nihil aperiam.</p>
+                    <span>1 min ago</span>
+                </div>
+            </div>
+            <div className="message own">
+                <div className="texts">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur dolorem fuga repudiandae suscipit ea nihil aperiam.</p>
+                    <span>1 min ago</span>
+                </div>
+            </div>
+            <div className="message">
+                <img src="./avatar.png" alt="" />
+                <div className="texts">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur dolorem fuga repudiandae suscipit ea nihil aperiam cumque.</p>
                     <span>1 min ago</span>
                 </div>
             </div>
@@ -46,30 +66,18 @@ const Chat = () => {
             <div className="message">
                 <img src="./avatar.png" alt="" />
                 <div className="texts">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur dolorem fuga repudiandae suscipit ea nihil aperiam cumque dignissimos fugiat autem minus, ipsa amet ullam odit eum assumenda debitis harum blanditiis.</p>
-                    <span>1 min ago</span>
-                </div>
-            </div>
-            <div className="message own">
-                <div className="texts">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur dolorem fuga repudiandae suscipit ea nihil aperiam cumque dignissimos fugiat autem minus, ipsa amet ullam odit eum assumenda debitis harum blanditiis.</p>
-                    <span>1 min ago</span>
-                </div>
-            </div>
-            <div className="message">
-                <img src="./avatar.png" alt="" />
-                <div className="texts">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur dolorem fuga repudiandae suscipit ea nihil aperiam cumque dignissimos fugiat autem minus, ipsa amet ullam odit eum assumenda debitis harum blanditiis.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur dolorem fuga repudiandae suscipit ea nihil .</p>
                     <span>1 min ago</span>
                 </div>
             </div>
             <div className="message own">
                 <div className="texts">
                 <img src="theme.png" alt="" />
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur dolorem fuga repudiandae suscipit ea nihil aperiam cumque dignissimos fugiat autem minus, ipsa amet ullam odit eum assumenda debitis harum blanditiis.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur dolorem fuga repudiandae suscipit ea nihil aperiam cumque dignissimos.</p>
                     <span>1 min ago</span>
                 </div>
             </div>
+            <div ref={endRef}></div>
         </div>
         <div className="bottom">
             <div className="icons">

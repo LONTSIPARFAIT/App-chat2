@@ -12,11 +12,11 @@ body {
   justify-content: center;
   height: 100vh;
   color: white;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 .container {
-  width: 90vw;
-  height: 90vh;
+  width: 95vw;
+  height: 98vh;
   background-color: rgba(17, 25, 48, 0.75);
   backdrop-filter: blur(19px) saturate(180%);
   border-radius: 12px;
